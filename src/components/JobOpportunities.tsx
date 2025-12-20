@@ -56,7 +56,7 @@ export function JobOpportunities() {
   });
 
   return (
-    <div className="job-opportunities px-4 sm:px-6 lg:px-8 py-6">
+    <section id='jobs' className="job-opportunities px-4 sm:px-6 lg:px-8 py-6">
       <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Latest Job & Internship Opportunities
@@ -103,7 +103,7 @@ export function JobOpportunities() {
           >
             <option value="All">All</option>
             <option value="Internship">Internship</option>
-            <option value="Full-time">Full-time</option>
+            <option value="Full-time Job">Full-time Job</option>
           </select>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -169,6 +169,6 @@ export function JobOpportunities() {
       {!loading && filteredJobs.length === 0 && (
         <p className="text-center text-gray-500 mt-10">No active opportunities right now.</p>
       )}
-    </div>
+    </section>
   );
 }
