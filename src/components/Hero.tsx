@@ -15,7 +15,7 @@ export function Hero() {
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-4">
-          Shaurya Awasthiiiiiiii
+          Shaurya Awasthi
         </h1>
 
         <p className="text-xl sm:text-2xl text-gray-600 mb-6 font-medium">
