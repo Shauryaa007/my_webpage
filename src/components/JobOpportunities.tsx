@@ -20,6 +20,7 @@ export function JobOpportunities() {
   // Search & filter state
   const [search, setSearch] = useState('');
   const [typeFilter, setTypeFilter] = useState<'All' | 'Internship' | 'Full-time'>('All');
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     fetch('https://opensheet.elk.sh/1XQpGNK8aJOPE5X-gfz1Lbx9rvfVqgNjT8IGiH24tVZE/Jobs') // Replace with your OpenSheet JSON URL
@@ -55,16 +56,18 @@ export function JobOpportunities() {
     return matchesSearch && matchesType;
   });
 
+  const visibleJobs = showAll ? filteredJobs : filteredJobs.slice(0, 6);
+
   return (
     <section id='jobs' className="job-opportunities px-4 sm:px-6 lg:px-8 py-6">
       <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Latest Job & Internship Opportunities
-          </h2>
-          <p className="text-lg text-gray-600">
-            Fresh opportunities updated regularly. Apply before the deadline!
-          </p>
-        </div>
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          Latest Job & Internship Opportunities
+        </h2>
+        <p className="text-lg text-gray-600">
+          Fresh opportunities updated regularly. Apply before the deadline!
+        </p>
+      </div>
       {/* Search + Filter UI */}
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
         {/* Search Input */}
@@ -123,7 +126,7 @@ export function JobOpportunities() {
       {/* Jobs grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {!loading &&
-          filteredJobs.map((job) => (
+          visibleJobs.map((job) => (
             <div
               key={job.id}
               className="p-6 border rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between bg-white"
@@ -164,6 +167,18 @@ export function JobOpportunities() {
             </div>
           ))}
       </div>
+
+      {/* Show All / Show Less Button */}
+      {!loading && filteredJobs.length > 6 && (
+        <div className="mt-12 text-center">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center gap-2 bg-white border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            {showAll ? 'Show Less' : `Show All (${filteredJobs.length})`}
+          </button>
+        </div>
+      )}
 
       {/* Empty state */}
       {!loading && filteredJobs.length === 0 && (
