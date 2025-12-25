@@ -1,4 +1,4 @@
-import { Briefcase, Linkedin, Youtube } from 'lucide-react';
+import { Briefcase, FolderOpen, Linkedin, Youtube } from 'lucide-react';
 export function Hero() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -9,9 +9,9 @@ export function Hero() {
     <section className="relative bg-gradient-to-br from-blue-50 via-white to-slate-50 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-6">
-        <div className="w-32 border ring-1 ring-slate-900 h-32 mx-auto mb-6 rounded-full shadow-lg bg-cover bg-center"
-          style={{ backgroundImage: "url('/profile.png')" }}>
-        </div>
+          <div className="w-32 border ring-1 ring-slate-900 h-32 mx-auto mb-6 rounded-full shadow-lg bg-cover bg-center"
+            style={{ backgroundImage: "url('/profile.png')" }}>
+          </div>
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-4">
@@ -34,7 +34,17 @@ export function Hero() {
             className="group inline-flex items-center gap-2 bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Youtube className="w-6 h-6" />
-            Subscribe on YouTube
+            Watch on YouTube
+          </a>
+
+          <a
+            href="https://shaurya-eportfolio1.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+          >
+            <FolderOpen className="w-6 h-6" />
+            View Portfolio
           </a>
 
           <a
@@ -44,7 +54,7 @@ export function Hero() {
             className="group inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Linkedin className="w-6 h-6" />
-            Follow on LinkedIn
+            Connect on LinkedIn
           </a>
 
           <button
@@ -52,7 +62,7 @@ export function Hero() {
             className="group inline-flex items-center gap-2 bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-slate-900 transition-all shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Briefcase className="w-6 h-6" />
-            View Latest Jobs
+            Job Openings
           </button>
         </div>
       </div>
